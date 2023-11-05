@@ -20,6 +20,7 @@ fi
 # Includes partials
 source <(cat ~/.zsh/aliases/*)
 source <(cat ~/.zsh/completions/*)
+source <(cat ~/.zsh/configs/*)
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
