@@ -13,7 +13,7 @@ brew install stow
 Each directory in a repository is being symlinked by `stow`.
 
 **ZSH**
-Configuration is being divided into directories, each must contain main.zsh that is being sourced in a `.zshrc` confguration.
+Configuration is being divided into directories. Each directory content is automatically sourced so just add new `*.zsh` file and have fun!
 
 # Setup
 
