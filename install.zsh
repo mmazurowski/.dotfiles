@@ -12,6 +12,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/inst
 
 echo "Brew ready"
 
+rm ~/.zshrc
+
+echo "Removed default ohmyzsh config"
+
 echo "Cloning dotfiles"
 
 git clone https://github.com/mmazurowski/.dotfiles ~/.dotfiles
