@@ -22,6 +22,7 @@ Clone this repository to your home directory. Then run following commands to sym
 ```shell
 stow zsh -v
 stow tmux -v
+stow nvim -v
 ```
 
 Ref 1. https://www.jakewiesler.com/blog/managing-dotfiles
