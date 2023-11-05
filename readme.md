@@ -25,4 +25,8 @@ stow tmux -v
 stow nvim -v
 ```
 
+## Install script
+
+Install script was hand written and is subject of (many) issues. To be verified in the future.
+
 Ref 1. https://www.jakewiesler.com/blog/managing-dotfiles
