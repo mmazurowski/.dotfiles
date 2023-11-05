@@ -25,3 +25,7 @@ brew install stow
 stow zsh -v
 stow tmux -v
 stow nvim -v
+
+echo "Installing brew dependencies"
+
+brew install nvm yq jq tmux terraform tfsec awscli glow neovim gh 
