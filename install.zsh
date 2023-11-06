@@ -32,4 +32,4 @@ stow nvim -v
 
 echo "Installing brew dependencies"
 
-brew install nvm yq jq tmux terraform tfsec awscli glow neovim gh 
+brew install nvm yq jq tmux terraform tfsec awscli glow neovim gh tig
