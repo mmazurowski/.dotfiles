@@ -1,0 +1,61 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Two-line prompt: context on the first line, input character on the second.
+format = """
+$directory$git_branch$git_status$terraform\
+$line_break$character"""
+
+# Right side mirrors the old RPROMPT: the active Azure profile + command timing.
+right_format = """$cmd_duration$custom"""
+
+add_newline = true
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = 'bold cyan'
+
+[git_branch]
+symbol = ' '
+style = 'bold purple'
+
+[git_status]
+style = 'bold yellow'
+
+[terraform]
+symbol = '󱁢 '
+format = '[$symbol$workspace]($style) '
+style = 'bold 105'          # terraform purple
+
+[cmd_duration]
+min_time = 2000
+format = '[ $duration]($style) '
+style = 'dimmed white'
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+
+# --- Azure profile indicator, keyed on AZURE_CONFIG_DIR ---------------------
+# Both profiles share one subscription, so the built-in [azure] module can't
+# tell them apart. These custom modules key off AZURE_CONFIG_DIR instead and
+# only render when a profile is selected (detect_env_vars). The value gates
+# which one shows: *admin* => loud red break-glass, otherwise calm green.
+
+[custom.azprofile]                      # least-privilege (e.g. .azure-iam): calm
+description = 'Active Azure profile (non-admin)'
+command = 'p="${AZURE_CONFIG_DIR##*/}"; echo "${p#.}"'
+when = '[ -n "$AZURE_CONFIG_DIR" ] && ! echo "$AZURE_CONFIG_DIR" | grep -q admin'
+shell = ['bash', '--noprofile', '--norc']
+symbol = '󰠅 '
+format = '[$symbol$output]($style) '
+style = 'bold green'
+
+[custom.azadmin]                        # elevated (.azure-admin): break-glass, loud
+description = 'Active Azure profile (admin / break-glass)'
+command = 'p="${AZURE_CONFIG_DIR##*/}"; echo "${p#.}"'
+when = '[ -n "$AZURE_CONFIG_DIR" ] && echo "$AZURE_CONFIG_DIR" | grep -q admin'
+shell = ['bash', '--noprofile', '--norc']
+symbol = '󰠅 '
+format = '[ $symbol$output ]($style) '
+style = 'bold white bg:red'

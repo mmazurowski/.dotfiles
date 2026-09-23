@@ -23,6 +23,7 @@ Clone this repository to your home directory. Then run following commands to sym
 stow zsh -v
 stow tmux -v
 stow nvim -v
+stow starship -v
 ```
 
 ## Install script
