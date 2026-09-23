@@ -1,10 +1,11 @@
 #!/bin/zsh
+set -e
 
-echo "Installing Oh My Zash"
+echo "Installing Oh My Zsh"
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-echo "Oh my zash ready"
+echo "Oh My Zsh ready"
 
 echo "Installing brew"
 
@@ -12,13 +13,20 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/inst
 
 echo "Brew ready"
 
-rm ~/.zshrc
-
-echo "Removed default ohmyzsh config"
+# Oh My Zsh drops its own ~/.zshrc, and `stow zsh` needs that path free. Move it
+# aside rather than deleting it — on a machine that already had a zshrc, an
+# unconditional `rm` here is silent data loss.
+if [[ -e ~/.zshrc && ! -L ~/.zshrc ]]; then
+  backup=~/.zshrc.pre-dotfiles.$(date +%Y%m%d%H%M%S)
+  mv ~/.zshrc "$backup"
+  echo "Existing ~/.zshrc moved to $backup"
+fi
 
 echo "Cloning dotfiles"
 
-git clone https://github.com/mmazurowski/.dotfiles ~/.dotfiles
+if [[ ! -d ~/.dotfiles ]]; then
+  git clone https://github.com/mmazurowski/.dotfiles ~/.dotfiles
+fi
 
 echo "Dotfiles ready"
 
@@ -33,8 +41,21 @@ stow starship -v
 stow ghostty -v
 stow lazygit -v
 stow git -v
+stow kitty -v
+stow aerospace -v
 
 echo "Installing brew dependencies"
 
-brew install nvm yq jq tmux terraform tfsec awscli glow neovim gh tig fzf starship fd ripgrep lazygit
+brew install nvm yq jq tmux terraform tfsec awscli glow neovim gh tig fzf starship fd ripgrep lazygit mise
 brew install --cask ghostty font-jetbrains-mono-nerd-font
+
+# tmux plugin manager — plugins are installed from inside tmux with `prefix + I`
+if [[ ! -d ~/.tmux/plugins/tpm ]]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+echo "Installing neovim plugins"
+
+nvim --headless "+Lazy! sync" +qa
+
+echo "Done. Open a new shell, then run 'prefix + I' inside tmux to fetch its plugins."

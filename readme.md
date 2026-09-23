@@ -27,6 +27,8 @@ stow starship -v
 stow ghostty -v
 stow lazygit -v
 stow git -v
+stow kitty -v
+stow aerospace -v
 ```
 
 ## Install script
@@ -39,12 +41,12 @@ Ref 1. https://www.jakewiesler.com/blog/managing-dotfiles
 
 ```shell
 # 1. tools
-brew install stow tmux neovim git ripgrep fd fzf lazygit starship
+brew install stow tmux neovim git ripgrep fd fzf lazygit starship mise
 brew install --cask ghostty font-jetbrains-mono-nerd-font
 
 # 2. configs
 git clone git@github.com:mmazurowski/.dotfiles.git ~/.dotfiles
-cd ~/.dotfiles && stow zsh tmux nvim starship ghostty lazygit git -v
+cd ~/.dotfiles && stow zsh tmux nvim starship ghostty lazygit git kitty aerospace -v
 
 # 3. tmux plugins — prefix is C-a, so: C-a I
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -55,6 +57,24 @@ nvim --headless "+Lazy! sync" +qa
 
 Neovim needs **0.11.2+**. Flutter work additionally needs the Flutter SDK on
 `PATH` (`brew install --cask flutter`); `flutter-tools.nvim` is inert without it.
+
+`install.zsh` does all of the above in one go. It moves any existing `~/.zshrc`
+to a timestamped backup rather than deleting it.
+
+## Portability
+
+`.zshrc` resolves `$HOMEBREW_PREFIX` itself (`/opt/homebrew` on Apple Silicon,
+`/usr/local` on Intel) before sourcing the partials in `~/.zsh`, and every
+optional tool is guarded:
+
+```sh
+command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
+[[ -d "$HOMEBREW_PREFIX/opt/fzf/bin" ]] && ...
+```
+
+Keep that pattern when adding partials — an unguarded `source` or `eval` makes
+every new shell print an error until that tool happens to be installed. Use
+`$HOME` rather than a literal `/Users/<name>` for the same reason.
 
 # Theme
 
