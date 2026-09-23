@@ -24,6 +24,8 @@ stow zsh -v
 stow tmux -v
 stow nvim -v
 stow starship -v
+stow ghostty -v
+stow lazygit -v
 ```
 
 ## Install script

@@ -30,7 +30,10 @@ stow zsh -v
 stow tmux -v
 stow nvim -v
 stow starship -v
+stow ghostty -v
+stow lazygit -v
 
 echo "Installing brew dependencies"
 
-brew install nvm yq jq tmux terraform tfsec awscli glow neovim gh tig fzf starship
+brew install nvm yq jq tmux terraform tfsec awscli glow neovim gh tig fzf starship fd ripgrep lazygit
+brew install --cask ghostty font-jetbrains-mono-nerd-font
