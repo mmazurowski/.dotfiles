@@ -27,6 +27,7 @@ stow starship -v
 stow ghostty -v
 stow lazygit -v
 stow git -v
+stow yazi -v
 stow kitty -v
 stow aerospace -v
 ```
@@ -41,12 +42,12 @@ Ref 1. https://www.jakewiesler.com/blog/managing-dotfiles
 
 ```shell
 # 1. tools
-brew install stow tmux neovim git ripgrep fd fzf lazygit starship mise
+brew install stow tmux neovim git ripgrep fd fzf lazygit starship mise yazi
 brew install --cask ghostty font-jetbrains-mono-nerd-font
 
 # 2. configs
 git clone git@github.com:mmazurowski/.dotfiles.git ~/.dotfiles
-cd ~/.dotfiles && stow zsh tmux nvim starship ghostty lazygit git kitty aerospace -v
+cd ~/.dotfiles && stow zsh tmux nvim starship ghostty lazygit git yazi kitty aerospace -v
 
 # 3. tmux plugins — prefix is C-a, so: C-a I
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -90,6 +91,7 @@ any plugin has been downloaded.
 | tmux    | `tmux/.config/tmux/themes/black_metal.tmux`     |
 | lazygit | `lazygit/.config/lazygit/config.yml`            |
 | fzf     | `zsh/.zsh/configs/fzf-theme.zsh`                |
+| yazi    | `yazi/.config/yazi/theme.toml`                  |
 | Neovim  | `nvim/.config/nvim/lua/plugins/colorscheme.lua` |
 
 `tokyonight_moon` is vendored alongside it for Ghostty and tmux. Switching is a

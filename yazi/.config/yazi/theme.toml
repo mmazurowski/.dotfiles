@@ -1,0 +1,144 @@
+# Derived from base16 black-metal — RRethy/base16-nvim: lua/colors/black-metal.lua @ 44fc7a0
+# base00 #000000  base01 #121212  base02 #222222  base03 #333333
+# base04 #999999  base05 #c1c1c1  base08 #5f8787  base09 #aaaaaa
+# base0A #a06666  base0B #dd9999  base0D #888888  base0F #444444
+
+[mgr]
+cwd = { fg = "#888888", italic = true }
+
+symlink_target = { fg = "#888888", italic = true }
+marker_symbol  = "│"
+
+find_keyword  = { fg = "#000000", bg = "#dd9999", bold = true }
+find_position = { fg = "#dd9999", bg = "#121212", bold = true }
+
+marker_copied   = { fg = "#dd9999", bg = "#dd9999" }
+marker_cut      = { fg = "#5f8787", bg = "#5f8787" }
+marker_marked   = { fg = "#a06666", bg = "#a06666" }
+marker_selected = { fg = "#aaaaaa", bg = "#aaaaaa" }
+
+count_copied   = { fg = "#000000", bg = "#dd9999" }
+count_cut      = { fg = "#000000", bg = "#5f8787" }
+count_selected = { fg = "#000000", bg = "#aaaaaa" }
+
+border_symbol = "│"
+border_style  = { fg = "#333333" }
+
+[indicator]
+parent  = { bg = "#222222" }
+current = { bg = "#222222" }
+preview = { bg = "#222222" }
+padding = { open = "", close = "" }
+
+[tabs]
+active   = { fg = "#000000", bg = "#dd9999" }
+inactive = { fg = "#dd9999", bg = "#222222" }
+
+[mode]
+normal_main = { fg = "#000000", bg = "#dd9999", bold = true }
+normal_alt  = { fg = "#dd9999", bg = "#222222" }
+
+select_main = { fg = "#000000", bg = "#a06666", bold = true }
+select_alt  = { fg = "#a06666", bg = "#222222" }
+
+unset_main  = { fg = "#000000", bg = "#5f8787", bold = true }
+unset_alt   = { fg = "#5f8787", bg = "#222222" }
+
+[status]
+overall   = { fg = "#c1c1c1", bg = "#121212" }
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+progress_label  = { fg = "#c1c1c1", bold = true }
+progress_normal = { fg = "#dd9999", bg = "#222222" }
+progress_error  = { fg = "#5f8787", bg = "#222222" }
+
+perm_type  = { fg = "#888888" }
+perm_read  = { fg = "#a06666" }
+perm_write = { fg = "#5f8787" }
+perm_exec  = { fg = "#dd9999" }
+perm_sep   = { fg = "#444444" }
+
+[pick]
+border   = { fg = "#333333" }
+active   = { fg = "#c1c1c1", bg = "#222222" }
+inactive = { fg = "#c1c1c1" }
+
+[input]
+border   = { fg = "#333333" }
+title    = { fg = "#dd9999" }
+value    = { fg = "#c1c1c1" }
+selected = { bg = "#222222" }
+
+[cmp]
+border   = { fg = "#333333" }
+active   = { fg = "#c1c1c1", bg = "#222222" }
+inactive = { fg = "#c1c1c1" }
+
+icon_file    = ""
+icon_folder  = ""
+icon_command = ""
+
+[tasks]
+border  = { fg = "#333333" }
+title   = { fg = "#dd9999" }
+hovered = { fg = "#c1c1c1", bg = "#222222" }
+
+[which]
+cols            = 3
+mask            = { bg = "#121212" }
+cand            = { fg = "#dd9999" }
+rest            = { fg = "#888888" }
+desc            = { fg = "#a06666" }
+separator       = " ➜ "
+separator_style = { fg = "#444444" }
+
+[confirm]
+border  = { fg = "#333333" }
+title   = { fg = "#dd9999" }
+body    = {}
+list    = {}
+btn_yes = { bg = "#222222" }
+btn_no  = {}
+btn_labels = [ "  [Y]es  ", "  (N)o  " ]
+
+[spot]
+border = { fg = "#333333" }
+title  = { fg = "#dd9999" }
+
+[notify]
+title_info  = { fg = "#dd9999" }
+title_warn  = { fg = "#a06666" }
+title_error = { fg = "#5f8787" }
+
+icon_error = ""
+icon_warn  = ""
+icon_info  = ""
+
+[help]
+border  = { fg = "#333333" }
+chord   = { fg = "#dd9999" }
+action  = { fg = "#c1c1c1" }
+hovered = { fg = "#000000", bg = "#dd9999", bold = true }
+
+[filetype]
+rules = [
+	# Image
+	{ mime = "**/image/*", fg = "#a06666" },
+	# Media
+	{ mime = "**/{audio,video}/*", fg = "#aaaaaa" },
+	# Archive
+	{ mime = "**/application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#5f8787" },
+	# Document
+	{ mime = "**/application/{pdf,doc,rtf}", fg = "#888888" },
+	# Virtual file system
+	{ mime = "vfs/{absent,stale}", fg = "#444444" },
+	# Special file
+	{ url = "*", is = "orphan", bg = "#5f8787" },
+	{ url = "*", is = "exec"  , fg = "#dd9999" },
+	# Dummy file
+	{ url = "*", is = "dummy", bg = "#5f8787" },
+	{ url = "*/", is = "dummy", bg = "#5f8787" },
+	# Fallback
+	{ url = "*/", fg = "#dd9999" }
+]

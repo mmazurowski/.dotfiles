@@ -41,12 +41,13 @@ stow starship -v
 stow ghostty -v
 stow lazygit -v
 stow git -v
+stow yazi -v
 stow kitty -v
 stow aerospace -v
 
 echo "Installing brew dependencies"
 
-brew install nvm yq jq tmux terraform tfsec awscli glow neovim gh tig fzf starship fd ripgrep lazygit mise
+brew install nvm yq jq tmux terraform tfsec awscli glow neovim gh tig fzf starship fd ripgrep lazygit mise yazi
 brew install --cask ghostty font-jetbrains-mono-nerd-font
 
 # tmux plugin manager — plugins are installed from inside tmux with `prefix + I`

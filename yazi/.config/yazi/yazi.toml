@@ -1,0 +1,10 @@
+[mgr]
+# Match neo-tree, which also shows dotfiles.
+show_hidden = true
+sort_by     = "natural"
+sort_dir_first = true
+
+[opener]
+edit = [
+  { run = '$EDITOR "$@"', desc = "Edit", block = true, for = "unix" },
+]
