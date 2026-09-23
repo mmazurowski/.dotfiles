@@ -8,7 +8,7 @@ return {
           -- in ~/Rimthan. Listed dirs are scanned one level deep for a repo
           -- marker (.git, package.json, Makefile, ...).
           projects = {
-            dev = { "~/Rimthan", "~/Projects", "~/SequenceOperators" },
+            dev = { "~/repos", "~/Rimthan", "~/Projects", "~/SequenceOperators" },
           },
         },
       },
