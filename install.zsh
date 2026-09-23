@@ -32,6 +32,7 @@ stow nvim -v
 stow starship -v
 stow ghostty -v
 stow lazygit -v
+stow git -v
 
 echo "Installing brew dependencies"
 

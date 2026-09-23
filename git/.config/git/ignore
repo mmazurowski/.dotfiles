@@ -1,0 +1,6 @@
+# Global gitignore. Git picks this up automatically at $XDG_CONFIG_HOME/git/ignore
+# (no core.excludesfile needed). Keep it to things that are never project-specific.
+
+# Claude Code per-machine state
+**/.claude/settings.local.json
+**/.claude/worktrees/
