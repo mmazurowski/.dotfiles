@@ -1,28 +1,28 @@
-# Vendored from tokyonight.nvim: extras/lazygit/tokyonight_moon.yml @ cdc07ac78467a233fd62c493de29a17e0cf2b2b6
+# Derived from base16 black-metal — RRethy/base16-nvim: lua/colors/black-metal.lua @ 44fc7a0
 gui:
   nerdFontsVersion: "3"
   theme:
     activeBorderColor:
-      - "#ff966c"
+      - "#dd9999"
       - "bold"
     inactiveBorderColor:
-      - "#589ed7"
+      - "#333333"
     searchingActiveBorderColor:
-      - "#ff966c"
+      - "#dd9999"
       - "bold"
     optionsTextColor:
-      - "#82aaff"
+      - "#888888"
     selectedLineBgColor:
-      - "#2d3f76"
+      - "#222222"
     cherryPickedCommitFgColor:
-      - "#82aaff"
+      - "#888888"
     cherryPickedCommitBgColor:
-      - "#c099ff"
+      - "#999999"
     markedBaseCommitFgColor:
-      - "#82aaff"
+      - "#000000"
     markedBaseCommitBgColor:
-      - "#ffc777"
+      - "#a06666"
     unstagedChangesColor:
-      - "#c53b53"
+      - "#5f8787"
     defaultFgColor:
-      - "#c8d3f5"
+      - "#c1c1c1"

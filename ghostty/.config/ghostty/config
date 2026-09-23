@@ -1,7 +1,16 @@
-theme = tokyonight_moon
+# --- theme -------------------------------------------------------------
+# Only one `theme` line may be active at a time. Both themes are vendored in
+# themes/ and are matched by nvim, tmux, lazygit and fzf.
+theme = black_metal
+# theme = tokyonight_moon
+# -----------------------------------------------------------------------
 
+# Menlo is what Cursor uses (its default `editor.fontFamily`). Menlo has no
+# Nerd Font glyphs, so JetBrainsMono NF is listed after it as a fallback for
+# the icons LazyVim, lualine and the tmux status line rely on.
+font-family = "Menlo"
 font-family = "JetBrainsMono Nerd Font"
-font-size = 14
+font-size = 16
 
 window-padding-x = 8
 window-padding-y = 6
